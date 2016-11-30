@@ -1,0 +1,45 @@
+<html>
+<head>
+
+    <title>JSChart</title>
+
+    <script type="text/javascript" src="/sources/plug-in/jscharts/jscharts.js"></script>
+    <script type="text/javascript" src="/sources/common/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div id="graph">Loading graph...</div>
+
+<script type="text/javascript">
+    jQuery.ajax({
+        type: "GET", contentType: "application/json",
+        url: "/getJson.html?l=" + Math.random(),
+        dataType: "json",
+        success: function (data) {
+            var myData = new Array();
+
+            $.each(data, function (i, item) {
+                var account = item.account;
+                var tmp = new Array(account, item.balance);
+                myData.push(tmp);
+            })
+            var myChart = new JSChart('graph', 'bar');
+            myChart.setDataArray(myData);
+            myChart.setSize(800, 600);
+            myChart.setBarColor('#42aBdB');
+            myChart.setBarOpacity(0.8);
+            myChart.setBarBorderColor('#D9EDF7');
+            myChart.setBarValues(false);
+            myChart.setTitleColor('#8C8383');
+            myChart.setAxisColor('#777E81');
+            myChart.setAxisValuesColor('#777E81');
+            myChart.draw();
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+/*提示标签背景颜色*/
+.tooltip-inner {
+    max-width: 200px;
+    padding: 3px 8px;
+    color: #ffffff;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #0babff;
+    border-radius: 4px;
+}
+
+/*提示标签的箭头颜色*/
+.tooltip.top .tooltip-arrow {
+    bottom: 0;
+    left: 50%;
+    margin-left: -5px;
+    border-top-color: #0babff;
+    border-width: 5px 5px 0;
+}
+
+.tooltip.right .tooltip-arrow {
+    top: 50%;
+    left: 0;
+    margin-top: -5px;
+    border-right-color: #0babff;
+    border-width: 5px 5px 5px 0;
+}
+
+.tooltip.bottom .tooltip-arrow {
+    top: 0;
+    left: 50%;
+    margin-left: -5px;
+    border-bottom-color: #0babff;
+    border-width: 0 5px 5px;
+}
+
+.tooltip.left .tooltip-arrow {
+    top: 50%;
+    right: 0;
+    margin-top: -5px;
+    border-left-color: #0babff;
+    border-width: 5px 0 5px 5px;
+}
+
+/*验证后的错误样式*/
+span.error {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    padding-left: 16px;
+    padding-bottom: 2px;
+    margin: auto;
+    z-index: 10;
+    color: #EA5200;
+    font-size: 12px;
+    font-weight: bolder;
+    font-family: "微软雅黑", "黑体";
+    /*background-image:url(/sources/plug-in/poshytip/src/tip-blue/tip-blue.png);*/
+}
+
+/*验证正确之后的绿色对钩位置*/
+.glyphicon {
+    position: absolute;
+    top: 15px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+}
+/*
+输入框颜色，*/
+.has-success .form-control {
+  color: #5b5b60;
+  border-color: #F8F8F8;
+  border-bottom-color: #3c763d !important;
+  border-bottom-width: 1px !important;
+  border-bottom-style: solid;
+  border-color: #3c763d !important;
+  border-width: 1px !important;
+  border-style: solid;
+}
+.form-login .username,.captcha-success{
+    color: #00aa00;
+    margin-top: -5px;
+}
+.form-login .captcha-failure{
+    color: #FF0000;
+    margin-top: -5px;
+}

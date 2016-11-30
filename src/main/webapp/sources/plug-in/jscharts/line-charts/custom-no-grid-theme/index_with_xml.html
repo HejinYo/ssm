@@ -1,0 +1,22 @@
+<html>
+<head>
+
+<title>JSChart</title>
+
+    <script type="text/javascript" src="/sources/plug-in/jscharts/jscharts.js"></script>
+    <script type="text/javascript" src="/sources/common/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="graph">Loading graph...</div>
+
+<script type="text/javascript">
+	
+	var myChart = new JSChart('graph', 'line');
+	myChart.setDataXML("data.xml");
+	myChart.draw();
+	
+</script>
+
+</body>
+</html>

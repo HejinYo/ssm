@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Checkbix</title>
+
+	<link rel="shortcut icon" href="demo/favicon.png">
+	<link rel="apple-touch-icon image_src" href="demo/favicon.png">
+
+	
+	<link rel="author" href="humans.txt">
+	<link rel="stylesheet" href="demo/highlight-9.5.0.min.css">
+	<link rel="stylesheet" href="dist/css/checkbix.min.css">
+	<link rel="stylesheet" href="demo/demo.css">
+</head>
+<body>
+
+
+
+	<h1>Checkbix</h1>
+	<h2>Simple vanilla Javascript plugin for enhancing checkboxes using CSS.</h2>
+	<h3>Accessible, lightweight and easy to use. No dependencies.</h3>
+	<div class="stats"></div>
+
+	
+
+	<h2>Usage</h2>
+
+	<h3>Default</h3>
+	<input id="mycheckbox" type="checkbox" class="checkbix" data-text="Checkbix">
+
+<pre><code class="html">
+&lt;input id="mycheckbox" type="checkbox" class="checkbix" data-text="Checkbix"&gt;
+</code></pre>
+
+	<h3>Size</h3>
+	<input id="mycheckbox2" type="checkbox" class="checkbix" data-text="Large, checked" data-size="large" checked>
+<pre><code class="html">
+&lt;input id="myothercheckbox" type="checkbox" class="checkbix" data-text="Checkbix. Large, checked" data-size="large" checked&gt;
+</code></pre>
+
+	<h3>Shape</h3>
+
+	<p>Square is default</p>
+
+	<input id="mycheckbox3" type="checkbox" class="checkbix" data-shape="circled" data-text="Circled">
+<pre><code class="html">
+&lt;input id="mycheckbox3" type="checkbox" class="checkbix" data-text="Circled. Large, checked" data-shape="circled"&gt;
+</code></pre>
+
+	<h3>Colors</h3>
+	<input id="mycheckbox4" type="checkbox" class="checkbix" data-shape="circled" data-color="black" data-text="Black, circled" checked>
+<pre><code class="html">
+&lt;input id="mycheckbox4" type="checkbox" class="checkbix" data-shape="circled" data-color="black" data-text="Black, circled" checked&gt;
+</code></pre>
+
+	<input id="mycheckbox5" type="checkbox" class="checkbix" data-color="blue" data-text="Blue" checked>
+<pre><code class="html">
+&lt;input id="mycheckbox5" type="checkbox" class="checkbix" data-color="blue" data-text="Blue" checked&gt;
+</code></pre>
+
+	<input id="mycheckbox6" type="checkbox" class="checkbix" data-shape="circled" data-size="large" data-color="red" data-text="Red, large" checked>
+<pre><code class="html">
+&lt;input id="mycheckbox6" type="checkbox" class="checkbix" data-size="large" data-color="red" data-text="Red, large" checked&gt;
+</code></pre>
+
+	<input id="mycheckbox7" type="checkbox" class="checkbix" data-color="gray" data-text="Gray" checked>
+<pre><code class="html">
+&lt;input id="mycheckbox7" type="checkbox" class="checkbix" data-color="gray" data-text="Gray" checked&gt;
+</code></pre>
+
+	<input id="mycheckbox8" type="checkbox" class="checkbix" data-shape="circled" data-color="orange" data-text="Orange, circled" checked>
+<pre><code class="html">
+&lt;input id="mycheckbox8" type="checkbox" class="checkbix" data-shape="circled" data-color="orange" data-text="Orange, circled" checked&gt;
+</code></pre>
+
+<h3>Customize ARIA label</h3>
+	<input id="mycheckbox9" type="checkbox" class="checkbix" data-shape="circled" data-color="black" data-text="Black, circled" data-arialabel="Checkbix is nice" checked>
+<pre><code class="html">
+&lt;input id="mycheckbox9" type="checkbox" class="checkbix" data-shape="circled" data-color="orange" data-text="Black, circled" data-arialabel="Checkbix is nice" checked&gt;
+</code></pre>
+
+	<h2>Install</h2>
+
+<pre><code class="bash">
+bower install checkbix.js
+</code></pre>
+
+<pre><code class="bash">
+npm install checkbix
+</code></pre>
+
+	<h3>Include files</h3>
+
+<pre><code class="html">
+&lt;link rel="stylesheet" href="dist/css/checkbix.min.css"&gt;
+</code></pre>
+
+<pre><code class="html">
+&lt;script src="dist/js/checkbix.min.js"&gt;&lt;/script&gt;
+</code></pre>
+
+	<h3>Init</h3>
+
+<pre><code class="Javascript">
+&lt;script&gt;
+	Checkbix.init();
+&lt;/script&gt;
+</code></pre>
+
+
+	<script src="demo/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="dist/js/checkbix.min.js"></script>
+	<script>
+
+		Checkbix.init();
+
+		
+
+	</script>
+
+	
+</body>
+</html>

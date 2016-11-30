@@ -1,0 +1,215 @@
+/*start test*/
+
+/*end test*/
+/*自适应高度重设*/
+@media (max-width: 991px) {
+    .main-content {
+        padding-top: 50px;
+    }
+}
+
+/*Start tabs 边框间距之类的样式*/
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border-bottom: 1px solid #007fff;
+}
+
+.glyphicon { /*关闭图标位置*/
+    top: 8px;
+    right: 4px;
+}
+
+.ui-widget.ui-widget-content {
+    border: 0px;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.ui-tabs .ui-tabs-panel {
+    display: block;
+    border-width: 0px;
+    padding: 0px;
+    background: none;
+}
+
+.ui-tabs .ui-tabs-nav {
+    margin: 0;
+    padding: .2em .2em 0;
+    height: 37px;
+}
+
+.ui-tabs {
+    position: relative; /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+    padding: 0px;
+}
+
+/*End tabs 边框间距之类的样式*/
+/*主页搜索*/
+.navbar-form {
+    padding: 6px;
+}
+
+/*样式切换修改*/
+@media (min-width: 992px) {
+    .main-content {
+        margin-top: 50px;
+        margin-left: 260px;
+    }
+
+    .app-navbar-fixed .main-content {
+        margin-top: 0;
+    }
+
+    .app-navbar-fixed .main-content:before, .app-navbar-fixed .main-content:after {
+        content: " ";
+        display: table;
+    }
+
+    .app-navbar-fixed .main-content:after {
+        clear: both;
+    }
+
+    .app-sidebar-closed .main-content {
+        margin-left: 70px;
+    }
+}
+
+/*Start tabsadd 边框间距之类的样式*/
+#dialog label, #dialog input {
+    display: block;
+}
+
+#dialog label {
+    margin-top: 0.5em;
+}
+
+#dialog input, #dialog textarea {
+    width: 95%;
+}
+
+#add_tab {
+    cursor: pointer;
+}
+
+/*End tabsadd 边框间距之类的样式*/
+
+/*Start 整体布局间部分的样式*/
+
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1089;
+    border: none;
+    margin-bottom: 0;
+    height: 50px;
+}
+
+.navbar .navbar-header {
+    z-index: 10;
+    background: #ffffff;
+    border-bottom: 1px solid #c8c7cc;
+    position: relative;
+    height: 50px;
+}
+
+#off-sidebar { /*用户面板*/
+    top: 49px;
+}
+
+@media (min-width: 768px) {
+    /*顶边栏div高度*/
+    .navbar .navbar-collapse {
+        margin-left: 260px;
+        height: 50px !important;
+    }
+
+    .navbar .navbar-collapse .nav {
+        height: auto !important;
+    }
+}
+
+.navbar .navbar-right > li.current-user > a { /*用户头像部分*/
+    padding-top: 4px;
+    padding-bottom: 2px;
+    font-size: 13px;
+    font-weight: normal;
+    text-transform: none;
+    margin-top: 2px;
+}
+
+.navbar .navbar-right > li > a { /*顶边栏中部按钮*/
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: #8e8e93;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 20px;
+    text-transform: uppercase;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    opacity: 0.9;
+    padding: 1px 5px 1px 5px;
+    position: relative;
+    text-align: center;
+}
+.navbar .navbar-right > li.current-user a i {
+    margin: 1px auto;
+}
+
+
+.navbar .navbar-right > li > a i {
+    display: block;
+    margin: 7px 15px 0px 15px;
+    color: #c8c7cc;
+    font-size: 17px;
+}
+
+.navbar .navbar-right .dropdown-menu:before {
+    top: -11px;
+    right: 21px;
+    left: auto;
+}
+
+.navbar .navbar-right .dropdown-menu:after {
+    top: -9px;
+    right: 22px;
+    left: auto;
+}
+
+.navbar .dropdown-off-sidebar { /*顶边栏右侧按钮*/
+    position: absolute;
+    z-index: 11;
+    top: 0;
+    right: 0;
+    border-left: 1px solid #c8c7cc;
+    width: 30px;
+    background: #ffffff;
+    line-height: 49px;
+    color: #c8c7cc;
+}
+
+.navbar .navbar-header a { /*logo部分高度*/
+    line-height: 50px;
+    height: 50px;
+}
+
+@media (min-width: 992px) {
+    /*页面top高度*/
+    .app-navbar-fixed {
+        padding-top: 50px;
+    }
+}
+
+.app-sidebar-fixed #sidebar { /*侧边栏top高度*/
+    position: fixed;
+    top: 50px !important;
+    margin-top: 0;
+}
+
+/*End 整体布局间部分的样式*/
