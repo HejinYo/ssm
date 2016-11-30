@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 配置Spirng MVC -->
+    <!-- 1: 开启SpirngMVC注解模式-->
+    <!-- 简化配置：
+        (1)自动注册DefaultAnnotationHandLerMapping等
+        (2)提供一些列：数据绑定，数字和日期的format @NumberForat @DataTimeFormat,xml，json默认读写支持
+    -->
+    <context:annotation-config/>
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean id="fastJsonHttpMessageConverter"
+                  class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <!--返回字符串格式json -->
+                        <value>application/json;charset=UTF-8</value>
+                        <value>text/html;charset=UTF-8</value><!-- 避免IE出现下载JSON文件的情况 -->
+                    </list>
+                </property>
+            </bean>
+
+            <bean id="stringHttpMessageConverter"
+                  class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8" index="0"/><!-- 避免出现乱码 -->
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/plain;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <!-- 2：静态资源默认servlet配置 -->
+    <!-- 1：加入对静态资源的处理：js，gif，png  2：允许使用"/"做成体映射 -->
+    <mvc:default-servlet-handler/>
+    <!--hibernate验证-->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+    </bean>
+    <!-- 模型解析器 -->
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- kaptcha 验证码-->
+    <bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
+        <property name="config">
+            <bean class="com.google.code.kaptcha.util.Config">
+                <constructor-arg>
+                    <props>
+                        <prop key="kaptcha.border">no</prop>
+                        <prop key="kaptcha.background.clear.from">WHITE</prop>
+                        <prop key="kaptcha.textproducer.char.string">0123456789</prop>
+                        <prop key="kaptcha.image.width">120</prop>
+                        <prop key="kaptcha.image.height">37</prop>
+                        <prop key="kaptcha.textproducer.font.size">35</prop>
+                        <prop key="kaptcha.textproducer.char.length">4</prop>
+                        <prop key="kaptcha.textproducer.char.space">3</prop>
+                        <!-- <prop key="kaptcha.border.color">105,179,90</prop>
+                        <prop key="kaptcha.textproducer.font.color">black</prop>
+                        <prop key="kaptcha.image.width">150</prop>
+                        <prop key="kaptcha.image.height">50</prop>
+                        <prop key="kaptcha.textproducer.font.size">45</prop>
+                        <prop key="kaptcha.session.key">code</prop>
+                        <prop key="kaptcha.textproducer.char.length">4</prop>
+                        <prop key="kaptcha.textproducer.font.names">宋体,楷体,微软雅黑</prop>-->
+                        <!-- kaptcha.border  是否有边框  默认为true  我们可以自己设置yes，no
+                         kaptcha.border.color   边框颜色   默认为Color.BLACK
+                         kaptcha.border.thickness  边框粗细度  默认为1
+                         kaptcha.producer.impl   验证码生成器  默认为DefaultKaptcha
+                         kaptcha.textproducer.impl   验证码文本生成器  默认为DefaultTextCreator
+                         kaptcha.textproducer.char.string   验证码文本字符内容范围  默认为abcde2345678gfynmnpwx
+                         kaptcha.textproducer.char.length   验证码文本字符长度  默认为5
+                         kaptcha.textproducer.font.names    验证码文本字体样式  默认为new Font("Arial", 1, fontSize), new Font("Courier", 1, fontSize)
+                         kaptcha.textproducer.font.size   验证码文本字符大小  默认为40
+                         kaptcha.textproducer.font.color  验证码文本字符颜色  默认为Color.BLACK
+                         kaptcha.textproducer.char.space  验证码文本字符间距  默认为2
+                         kaptcha.noise.impl    验证码噪点生成对象  默认为DefaultNoise
+                         kaptcha.noise.color   验证码噪点颜色   默认为Color.BLACK
+                         kaptcha.obscurificator.impl   验证码样式引擎  默认为WaterRipple
+                         kaptcha.word.impl   验证码文本字符渲染   默认为DefaultWordRenderer
+                         kaptcha.background.impl   验证码背景生成器   默认为DefaultBackground
+                         kaptcha.background.clear.from   验证码背景颜色   默认为Color.LIGHT_GRAY
+                         kaptcha.background.clear.to   验证码背景颜色渐进   默认为Color.WHITE
+                         kaptcha.image.width   验证码图片宽度  默认为200
+                         kaptcha.image.height  验证码图片高度  默认为50-->
+                    </props>
+                </constructor-arg>
+            </bean>
+        </property>
+    </bean>
+    <!-- 扫描service 包下面 controller 使用注解的类型 -->
+    <context:component-scan base-package="com.hejinyo.ssm.controller"/>
+</beans>
