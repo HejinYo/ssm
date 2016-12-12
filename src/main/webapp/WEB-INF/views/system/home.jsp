@@ -32,7 +32,9 @@
     <link href="/sources/plug-in/animate.css/animate.min.css" rel="stylesheet" media="screen">
     <link href="/sources/plug-in/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
     <link href="/sources/plug-in/switchery/switchery.min.css" rel="stylesheet" media="screen">
-    <link href="/sources/plug-in/jquery-ui/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="/sources/plug-in/jquery-easyui/themes/material/easyui.css">
+    <link rel="stylesheet" href="/sources/plug-in/jquery-easyui/themes/icon.css">
+    <%--<link href="/sources/plug-in/jquery-ui/jquery-ui.css" rel="stylesheet">--%>
     <!-- end: MAIN CSS -->
     <!-- start: CLIP-TWO CSS -->
     <link rel="stylesheet" href="/sources/css/system/styles.css">
@@ -75,7 +77,7 @@
                 </div>
                 <ul class="main-navigation-menu">
                     <li class="active open">
-                        <a onclick="add_Tab('to_login');">
+                        <a onclick="tabs.addPanel('用户登录','/to_login','tabs_88');">
                             <div class="item-content">
                                 <div class="item-media">
                                     <i class="ti-home"></i>
@@ -86,8 +88,20 @@
                             </div>
                         </a>
                     </li>
+                    <li class="">
+                        <a onclick="tabs.addPanel('jqGrid','/sources/plug-in/jqGrid/bootstrap/index.html','tabs_89');">
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <i class="ti-home"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <span class="title"> jqGrid </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
                     <li>
-                        <a href="javascript:void(0)">
+                        <a id="clickl">
                             <div class="item-content">
                                 <div class="item-media">
                                     <i class="ti-pencil-alt"></i>
@@ -261,7 +275,7 @@
                     <!-- start: MESSAGES DROPDOWN -->
                     <li class="dropdown">
                         <a href class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="dot-badge partition-red"></span> <i class="ti-comment"></i> <span>MESSAGES</span>
+                            <span class="dot-badge partition-red"></span> <i class="ti-comment"></i> <span>消 息</span>
                         </a>
                         <ul class="dropdown-menu dropdown-light dropdown-messages dropdown-large">
                             <li>
@@ -326,7 +340,7 @@
                     <!-- start: ACTIVITIES DROPDOWN -->
                     <li class="dropdown">
                         <a href class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="ti-check-box"></i> <span>ACTIVITIES</span>
+                            <i class="ti-check-box"></i> <span>活 动</span>
                         </a>
                         <ul class="dropdown-menu dropdown-light dropdown-messages dropdown-large">
                             <li>
@@ -356,7 +370,7 @@
                     <!-- start: LANGUAGE SWITCHER -->
                     <li class="dropdown">
                         <a href class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="ti-world"></i> English
+                            <i class="ti-world"></i> 语 言
                         </a>
                         <ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort">
                             <li>
@@ -427,14 +441,23 @@
         <!-- end: TOP NAVBAR -->
         <div class="main-content">
             <div id="iframe">
-                <div id="tabs">
+                <%--<div id="tabs">
                     <ul>
                         <li><a href="#tabs-0">默认页</a></li>
                     </ul>
                     <div id="tabs-0">
                         <iframe src="/sources/plug-in/poshytip/demo/demo.html" id="inner_frame_0"
-                        width='100%' height="100%" name="inner-frame-0" border="0" frameBorder="no" scrolling="yes"></iframe>
+                                width='100%' height="100%" name="inner-frame-0" border="0" frameBorder="no" scrolling="yes"></iframe>
                     </div>
+                </div>--%>
+                <div id="tabs" class="easyui-tabs" data-options="tools:'#tab-tools'" style="width:100%;">
+                    <div title="首页" id='tabs_0' data-options="closable:false" style="overflow:hidden">
+                        <iframe scrolling="yes" frameborder="0" src="/sources/plug-in/poshytip/demo/demo.html" style="width:100%;"></iframe>
+                    </div>
+                </div>
+                <div id="tab-tools">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="tabs.updatePanel()"></a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cancel'" onclick="tabs.removePanel()"></a>
                 </div>
             </div>
         </div>
@@ -784,8 +807,14 @@
 <script src="/sources/plug-in/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script src="/sources/plug-in/switchery/switchery.min.js"></script>
 <!-- end: MAIN JAVASCRIPTS -->
+<!-- start jqueryui tabs -->
+<script src="/sources/plug-in/jquery-easyui/src/jquery.parser.js"></script>
+<script src="/sources/plug-in/jquery-easyui/src/jquery.linkbutton.js"></script>
+<script src="/sources/plug-in/jquery-easyui/src/jquery.panel.js"></script>
+<script src="/sources/plug-in/jquery-easyui/src/jquery.tabs.js"></script>
+<!-- end jqueryui tabs -->
 <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-<script src="/sources/plug-in/jquery-ui/jquery-ui.js"></script>
+<%--<script src="/sources/plug-in/jquery-ui/jquery-ui.js"></script>--%>
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 <!-- start: CLIP-TWO JAVASCRIPTS -->
 <script src="/sources/js/system/main_clip.js"></script>

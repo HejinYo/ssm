@@ -1,53 +1,16 @@
 /*start test*/
 
 /*end test*/
+
+.panel {
+  overflow: visible;/*和主页设置按钮冲突，重写jquery easyui css*/
+}
 /*自适应高度重设*/
 @media (max-width: 991px) {
     .main-content {
         padding-top: 50px;
     }
 }
-
-/*Start tabs 边框间距之类的样式*/
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
-    border-bottom: 1px solid #007fff;
-}
-
-.glyphicon { /*关闭图标位置*/
-    top: 8px;
-    right: 4px;
-}
-
-.ui-widget.ui-widget-content {
-    border: 0px;
-}
-
-.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px;
-}
-
-.ui-tabs .ui-tabs-panel {
-    display: block;
-    border-width: 0px;
-    padding: 0px;
-    background: none;
-}
-
-.ui-tabs .ui-tabs-nav {
-    margin: 0;
-    padding: .2em .2em 0;
-    height: 37px;
-}
-
-.ui-tabs {
-    position: relative; /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
-    padding: 0px;
-}
-
-/*End tabs 边框间距之类的样式*/
 /*主页搜索*/
 .navbar-form {
     padding: 6px;
@@ -77,25 +40,6 @@
         margin-left: 70px;
     }
 }
-
-/*Start tabsadd 边框间距之类的样式*/
-#dialog label, #dialog input {
-    display: block;
-}
-
-#dialog label {
-    margin-top: 0.5em;
-}
-
-#dialog input, #dialog textarea {
-    width: 95%;
-}
-
-#add_tab {
-    cursor: pointer;
-}
-
-/*End tabsadd 边框间距之类的样式*/
 
 /*Start 整体布局间部分的样式*/
 

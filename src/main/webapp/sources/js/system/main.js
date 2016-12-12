@@ -1,45 +1,58 @@
 $(function () {
-    //ifram 自适应高度
-    $("iframe").height($(window).height() - 92);
+    resetHeight();
     $(window).resize(function () {
-        $("iframe").height($(window).height() - 92);
-    })
-    var tabs = $("#tabs").tabs();
-    // 关闭图标：当点击时移除标签页
-    tabs.delegate("span.glyphicon-remove", "click", function () {
-        var panelId = $(this).closest("li").remove().attr("aria-controls");
-        $("#" + panelId).remove();
-        var index = $("#tabsCount").val();
-        index--;
-        $("#tabsCount").val(index);
-        tabs.tabs("refresh");
+        resetHeight();
     });
+    $('#tabs').tabs({
+        tabHeight: 33,
+        closable: false
+    });
+    $("#clickl").click(function () {
+        console.log($("#tabs").tabs("getTabId"));
+    })
 });
 
-function add_Tab(src) {
-    var tabTitle = $("#tab_title"),
-        tabContent = $("#tab_content"),
-        tabTemplate = "<li><a href='#{href}'>#{label}</a> <span class='glyphicon glyphicon-remove icon' role='presentation'></span></li>",
-        tabCounter = 4;
-    var index = $("#tabsCount").val();
-    index++;
-    $("#tabsCount").val(index);
-    var tabs = $("#tabs").tabs();
-
-    var label = tabTitle.val() || "Tab " + index,
-        id = "tabs-" + Math.floor((Math.random() * 100) + 1),
-        li = $(tabTemplate.replace(/#\{href\}/g, "#" + id).replace(/#\{label\}/g, label)),
-        tabContentHtml = tabContent.val() || "Tab " + index + " content.";
-    tabs.find(".ui-tabs-nav").append(li);
-    if (typeof(src) != "undefined") {
-        var iframe = '<iframe src="' + src + '" id="inner_frame_0" width="100%" height="100%" name="inner-frame-0" border="0" frameBorder="no" scrolling="yes"></iframe>';
-        tabs.append("<div id='" + id + "'>" + iframe + "</div>");
-    } else {
-        tabs.append("<div id='" + id + "'><p>" + tabContentHtml + "</p></div>");
+var tabs = {
+    addPanel: function (title, url, tabid) {
+        var tabs = $('#tabs');
+        if (tabs.tabs('exists', tabid)) {
+            tabs.tabs('select', tabid);
+            return false;
+        }
+        var content = '<iframe src=' + url + ' width="100%" border="0" frameBorder="no" scrolling="yes"></iframe>';
+        tabs.tabs('add', {
+            id: tabid,
+            title: title,
+            content: content,
+            closable: true,
+            showHeader: true,
+        });
+        resetHeight();
+    },
+    removePanel: function () {
+        var tab = $('#tabs').tabs('getSelected');
+        if (tab) {
+            var index = $('#tabs').tabs('getTabIndex', tab);
+            $('#tabs').tabs('close', index);
+        }
+    },
+    updatePanel: function () {
+        //var url = $(currTab.panel('options').content).attr('src');
+        //var content = '<iframe src=' + url + ' width="100%" border="0" frameBorder="no" scrolling="yes"></iframe>';
+        var currTab = $('#tabs').tabs('getSelected');  // get selected panel
+        var title = $('li[tabid=' + $("#tabs").tabs("getTabId") + '] span[class="tabs-title"]').html();
+        var content = $('#' + $("#tabs").tabs("getTabId")).html();
+        $('#tabs').tabs('update', {
+            tab: currTab,
+            options: {
+                title: title,
+                content: content
+            }
+        });
+        resetHeight();
     }
-
-    tabs.tabs("refresh");
-    var panelId = $("#tabs ul li[aria-controls=" + id + "]");
-    tabs.tabs("option", "active", index);
+}
+function resetHeight() {
+    //ifram 自适应高度
     $("iframe").height($(window).height() - 92);
 }
